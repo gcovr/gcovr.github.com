@@ -786,7 +786,7 @@ machine readable XML reports (in
 reports.  Thus, <code>gcovr</code> can be viewed as a command-line alternative
 to the <a href="http://ltp.sourceforge.net/coverage/lcov.php">lcov</a> utility,
 which runs gcov and generates an HTML-formatted report.  This documentation describes
-Gcovr 3.0.</p></div>
+Gcovr 3.1.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -935,7 +935,7 @@ code coverage statistics in various formats.  For example:</p></div>
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
-<pre><tt>gcovr -r <span style="color: #990000">.</span></tt></pre></div></div>
+<pre><tt><span style="color: #990000">../../..</span>/scripts/gcovr -r <span style="color: #990000">.</span></tt></pre></div></div>
 <div class="paragraph"><p>generates a text summary of the lines executed:</p></div>
 <div class="listingblock">
 <div class="content">
@@ -973,7 +973,7 @@ branch, but <code>gcov</code> cannot discern which branch is executed.</p></div>
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
-<pre><tt>gcovr -r <span style="color: #990000">.</span> --branches</tt></pre></div></div>
+<pre><tt><span style="color: #990000">../../..</span>/scripts/gcovr -r <span style="color: #990000">.</span> --branches</tt></pre></div></div>
 <div class="paragraph"><p>This generates a tabular output that summarizes the number of branches, the number of
 branches taken and the branches that were not completely covered:</p></div>
 <div class="listingblock">
@@ -997,7 +997,7 @@ XML output using the <code>--xml</code> and <code>--xml-pretty</code> options:</
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
-<pre><tt>gcovr -r <span style="color: #990000">.</span> --xml-pretty</tt></pre></div></div>
+<pre><tt><span style="color: #990000">../../..</span>/scripts/gcovr -r <span style="color: #990000">.</span> --xml-pretty</tt></pre></div></div>
 <div class="paragraph"><p>This generates an XML summary of the lines executed:</p></div>
 <div class="listingblock">
 <div class="content">
@@ -1005,7 +1005,7 @@ http://www.gnu.org/software/src-highlite -->
 &lt;!DOCTYPE coverage
   SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-03.dtd'&gt;
 &lt;coverage branch-rate="0.666666666667" line-rate="0.642857142857"
- timestamp="1376247833" version="gcovr 3.0 (r2887)"&gt;
+ timestamp="1386382042" version="gcovr 3.1"&gt;
  &lt;sources&gt;
   &lt;source&gt;.&lt;/source&gt;
  &lt;/sources&gt;
@@ -1071,7 +1071,7 @@ HTML output using the <code>--html</code> option:</p></div>
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
-<pre><tt>gcovr -r <span style="color: #990000">.</span> --html -o example1<span style="color: #990000">.</span>html</tt></pre></div></div>
+<pre><tt><span style="color: #990000">../../..</span>/scripts/gcovr -r <span style="color: #990000">.</span> --html -o example1<span style="color: #990000">.</span>html</tt></pre></div></div>
 <div class="paragraph"><p>This generates a HTML summary of the lines executed.  In this
 example, the file <code>example1.html</code> is generated, which has the
 following output:</p></div>
@@ -2327,7 +2327,7 @@ command:</p></div>
 by Lorenzo Bettini
 http://www.lorenzobettini.it
 http://www.gnu.org/software/src-highlite -->
-<pre><tt>gcovr -r <span style="color: #990000">.</span> --html --html-details -o example2<span style="color: #990000">.</span>html</tt></pre></div></div>
+<pre><tt><span style="color: #990000">../../..</span>/scripts/gcovr -r <span style="color: #990000">.</span> --html --html-details -o example2<span style="color: #990000">.</span>html</tt></pre></div></div>
 <div class="paragraph"><p>This generates the following HTML page for the file <code>example2.cpp</code>:</p></div>
 <div class="imageblock" style="text-align:center;">
 <div class="content">
@@ -4265,8 +4265,9 @@ Options:
   --gcov-exclude=GCOV_EXCLUDE
                         Exclude gcov data files that match this regular
                         expression
-  -r ROOT, --root=ROOT  Defines the root directory.  This is used to filter
-                        the files, and to standardize the output.
+  -r ROOT, --root=ROOT  Defines the root directory for source files.  This is
+                        also used to filter the files, and to standardize the
+                        output.
   -x, --xml             Generate XML instead of the normal tabular output.
   --xml-pretty          Generate pretty XML instead of the normal dense
                         format.
@@ -4281,7 +4282,12 @@ Options:
   --gcov-executable=GCOV_CMD
                         Defines the name/path to the gcov executable [defaults
                         to the GCOV environment variable, if present; else
-                        'gcov'].</code></pre>
+                        'gcov'].
+  --exclude-unreachable-branches
+                        Exclude from coverage branches which are marked to be
+                        excluded by LCOV/GCOV markers or are determined to be
+                        from lines containing only compiler-generated "dead"
+                        code.</code></pre>
 </div></div>
 <div class="paragraph"><p>The following sections illustrate the use of these command line options.</p></div>
 </div>
@@ -4322,8 +4328,13 @@ contributions from a wider set of developers.</p></div>
 <div class="sect1">
 <h2 id="acknowledgements">Acknowledgements</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>The following developers contributed to the Gcovr 3.0 release:</p></div>
+<div class="paragraph"><p>The following developers contributed to the Gcovr 3.1 release:</p></div>
 <div class="ulist"><ul>
+<li>
+<p>
+Piotr Dziwinski
+</p>
+</li>
 <li>
 <p>
 William Hart
@@ -4331,7 +4342,17 @@ William Hart
 </li>
 <li>
 <p>
+Robert Rosengren
+</p>
+</li>
+<li>
+<p>
 John Siirola
+</p>
+</li>
+<li>
+<p>
+Matsumoto Taichi
 </p>
 </li>
 </ul></div>
@@ -4388,7 +4409,7 @@ http://www.gnu.org/software/src-highlite -->
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2013-09-02 06:59:45 MDT
+Last updated 2013-12-06 19:06:25 MST
 </div>
 </div>
 </body>
