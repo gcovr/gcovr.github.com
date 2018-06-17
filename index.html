@@ -1,73 +1,295 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
- <title>Gcovr Home</title>
 
- <!-- Framework CSS -->
- <link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection" />
- <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
- <!--[if lt IE 8]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gcovr &mdash; gcovr 4.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body>
+<body class="wy-body-for-nav">
 
- <div class="container">
-   <br/>
- <div class="span-16 last prepend-4 append-4">
-   <h1>Gcovr</h1>
-<h4>
-The gcovr command provides a utility for managing the use of the
-GNU gcov utility and generating summarized code coverage results.
-This command is inspired by the Python coverage.py package, which
-provides a similar utility in Python. Gcovr produces either compact
-human-readable summary reports, machine readable XML reports or a simple HTML summary.
-</h4>
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> gcovr
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Gcovr User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">gcovr</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>gcovr</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
   <hr/>
- </div>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gcovr">
+<h1>gcovr<a class="headerlink" href="#gcovr" title="Permalink to this headline">¶</a></h1>
+<p>Gcovr provides a utility for managing the use of the GNU <a class="reference external" href="http://gcc.gnu.org/onlinedocs/gcc/Gcov.html">gcov</a> utility
+and generating summarized code coverage results. This command is
+inspired by the Python <a class="reference external" href="http://nedbatchelder.com/code/coverage/">coverage.py</a> package, which provides a similar
+utility for Python.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gcovr</span></code> command can produce different kinds of coverage reports:</p>
+<ul class="simple">
+<li>default: compact human-readable summaries</li>
+<li><code class="docutils literal notranslate"><span class="pre">--xml</span></code>: machine readable XML reports in <a class="reference external" href="http://cobertura.sourceforge.net/">Cobertura</a> format</li>
+<li><code class="docutils literal notranslate"><span class="pre">--html</span></code>: HTML summaries</li>
+<li><code class="docutils literal notranslate"><span class="pre">--html-details</span></code>: HTML report with annotated source files</li>
+</ul>
+<p>Thus, gcovr can be viewed
+as a command-line alternative to the <a class="reference external" href="http://ltp.sourceforge.net/coverage/lcov.php">lcov</a> utility, which runs gcov
+and generates an HTML-formatted report.
+The development of gcovr was motivated by the need for
+text summaries and XML reports.</p>
+<div class="admonition-quick-links admonition">
+<p class="first admonition-title">Quick Links</p>
+<ul class="last simple">
+<li>Getting Help<ul>
+<li><a class="reference external" href="https://github.com/gcovr/gcovr/issues">Submit a ticket</a></li>
+<li><a class="reference external" href="https://stackoverflow.com/questions/tagged/gcovr">Stack Overflow</a></li>
+<li><a class="reference external" href="https://gitter.im/gcovr/gcovr">Chat on Gitter</a></li>
+</ul>
+</li>
+<li>Install from <a class="reference external" href="https://pypi.org/project/gcovr/">PyPI</a>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gcovr</span></code></li>
+<li><a class="reference external" href="https://github.com/gcovr/gcovr">Source Code on GitHub</a></li>
+<li><a class="reference internal" href="changelog.html"><span class="doc">Change Log</span></a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Gcovr User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#the-gcovr-command">The gcovr Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#using-filters">Using Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#how-to-report-bugs">How to report bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#how-to-help">How to help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#how-to-submit-a-pull-request">How to submit a Pull Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#how-to-set-up-a-development-environment">How to set up a development environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#test-suite">Test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#become-a-gcovr-developer">Become a gcovr developer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#july-2018">4.0 (17 July 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#february-2018">3.4 (12 February 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#august-2016">3.3 (6 August 2016)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#july-2014">3.2 (5 July 2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#december-2013">3.1 (6 December 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#august-2013">3.0 (10 August 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#april-2012">2.4 (13 April 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#january-2012">2.3.1 (6 January 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#december-2011">2.3 (11 December 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">2.2 (10 December 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#november-2010">2.1 (26 November 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#august-2010">2.0 (22 August 2010)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+</div>
+</div>
 
- <div class="span-16 prepend-4 append-4 append-bottom">
-  <div class="span-8">
-     <h2>Documentation</h2>
-     <h3> &#149; <a href="http://gcovr.com/guide.html">User Guide</a>
-     </h3>
 
-     <h2>Getting Help</h2>
-     <h3> &#149; <a href="https://github.com/gcovr/gcovr/issues">Submit a Ticket</a><br/>
-          &#149; <a href="http://stackoverflow.com/search?q=[gcovr]">Stack Overflow</a><br/>
-     </h3>
-  </div>
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
 
-  <div class="span-8 last">
-     <h2>Download</h2>
-     <h3> &#149; <a href="https://pypi.python.org/pypi/gcovr/">PyPI</a><br/>
-          &#149; pip install gcovr
-     </h3>
-
-     <h2>Source Code</h2>
-     <h3> &#149; <a href="https://github.com/gcovr/gcovr">Browse Source (GitHub)</a> <br/>
-          &#149; <a href="https://github.com/gcovr/gcovr/releases">Source Downloads</a> <br/>
-          &#149; <a href="https://raw.github.com/gcovr/gcovr/master/CHANGELOG.txt">Change Log</a> <br/>
-     </h3>
-  </div>
- </div>
-
- <div class="span-16 prepend-4 append-4">
   <hr/>
-   <a href="https://github.com/gcovr/gcovr"> <img src="github.png" border="0" alt="GitHub Logo" height="37" /></a>
- </div>
 
- </div>
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, the gcovr authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
 </body>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-41008243-1', 'gcovr.com');
-  ga('send', 'pageview');
-
-</script>
 </html>

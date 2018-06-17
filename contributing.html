@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing &mdash; gcovr 4.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Change Log" href="changelog.html" />
+    <link rel="prev" title="Gcovr User Guide" href="guide.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> gcovr
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Gcovr User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-report-bugs">How to report bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-help">How to help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-submit-a-pull-request">How to submit a Pull Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-set-up-a-development-environment">How to set up a development environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-suite">Test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#become-a-gcovr-developer">Become a gcovr developer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gcovr</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Contributing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/contributing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>This document contains:</p>
+<ul class="simple">
+<li>our <a class="reference internal" href="#how-to-report-bugs">guidelines for bug reports</a></li>
+<li><a class="reference internal" href="#how-to-help">general contribution guidelines</a></li>
+<li>a <a class="reference internal" href="#how-to-submit-a-pull-request">checklist for pull requests</a></li>
+<li>a developer guide that explains the
+<a class="reference internal" href="#how-to-set-up-a-development-environment">development environment</a>,
+<a class="reference internal" href="#project-structure">project structure</a>,
+and <a class="reference internal" href="#test-suite">test suite</a></li>
+</ul>
+<div class="section" id="how-to-report-bugs">
+<h2>How to report bugs<a class="headerlink" href="#how-to-report-bugs" title="Permalink to this headline">¶</a></h2>
+<p>When reporting a bug, first <a class="reference external" href="https://github.com/gcovr/gcovr/issues?q=is%3Aissue">search our issues</a> to avoid duplicates.
+In your bug report, please describe what you expected gcovr to do, and what it actually did.
+Also try to include the following details:</p>
+<ul class="simple">
+<li>how you invoked gcovr, i.e. the exact flags and from which directory</li>
+<li>your project layout</li>
+<li>your gcovr version</li>
+<li>your compiler version</li>
+<li>your operating system</li>
+<li>and any other relevant details.</li>
+</ul>
+<p>Ideally, you can provide a short script
+and the smallest possible source file to reproduce the problem.</p>
+</div>
+<div class="section" id="how-to-help">
+<h2>How to help<a class="headerlink" href="#how-to-help" title="Permalink to this headline">¶</a></h2>
+<p>If you would like to help out, please take a look at our
+<a class="reference external" href="https://github.com/gcovr/gcovr/issues">open issues</a> and <a class="reference external" href="https://github.com/gcovr/gcovr/pulls">pull requests</a>.
+The issues labeled <a class="reference external" href="https://github.com/gcovr/gcovr/labels/help%20wanted">help wanted</a> and
+<a class="reference external" href="https://github.com/gcovr/gcovr/labels/needs%20review">needs review</a> would have the greatest impact.</p>
+<p>There are many ways how you can help:</p>
+<ul class="simple">
+<li>assist other users with their problems</li>
+<li>share your perspective as a gcovr user in discussions</li>
+<li>test proposed changes in your real-world projects</li>
+<li>improve our documentation</li>
+<li>submit pull requests with bug fixes and enhancements</li>
+</ul>
+</div>
+<div class="section" id="how-to-submit-a-pull-request">
+<h2>How to submit a Pull Request<a class="headerlink" href="#how-to-submit-a-pull-request" title="Permalink to this headline">¶</a></h2>
+<p>Thank you for helping with gcovr development!
+Please follow this checklist for your pull request:</p>
+<ul>
+<li><p class="first"><strong>Is this a good approach?</strong>
+Fixing open issues is always welcome!
+If you want to implement an enhancement,
+please discuss it first as a GitHub issue.</p>
+</li>
+<li><p class="first"><strong>Does it work?</strong>
+Please run the tests locally:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span>
+</pre></div>
+</div>
+<p>In any case, the tests will run automatically
+when you open the pull request.
+But please prevent unnecessary build failures
+and run the tests yourself first.
+If you cannot run the tests locally,
+you can activate Travis CI or Appveyor for your fork.</p>
+<p>If you add new features, please try to add a test case.</p>
+</li>
+<li><p class="first"><strong>Does it conform to the style guide?</strong>
+The source code should conform to the <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0008"><strong>PEP 8</strong></a> standard.
+Please check your code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">flake8</span> <span class="n">doc</span> <span class="n">gcovr</span> <span class="o">--</span><span class="n">ignore</span> <span class="n">E501</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Add yourself as an author.</strong>
+If this is your first contribution to gcovr,
+please add yourself to the <code class="docutils literal notranslate"><span class="pre">AUTHORS.txt</span></code> file.</p>
+</li>
+<li><p class="first"><strong>One change at a time.</strong>
+Please keep your commits and your whole pull request fairly small,
+so that the changes are easy to review.
+Each commit should only contain one kind of change,
+e.g. refactoring <em>or</em> new functionality.</p>
+</li>
+<li><p class="first"><strong>Why is this change necessary?</strong>
+When you open the PR,
+please explain why we need this change and what your PR does.
+If this PR fixes an open issue,
+reference that issue in the pull request description.</p>
+</li>
+</ul>
+<p>Once you submit the PR, it will be automatically tested on Windows and Linux,
+and code coverage will be collected.
+Your code will be reviewed.
+This can take a week.
+Please fix any issues that are discovered during this process.
+Feel free to force-push your updates to the pull request branch.</p>
+<p>If you need assistance for your pull request, you can</p>
+<blockquote>
+<div><ul class="simple">
+<li>chat in <a class="reference external" href="https://gitter.im/gcovr/gcovr">our Gitter room</a></li>
+<li>discuss your problem in an issue</li>
+<li>open an unfinished pull request as a work in progress (WIP),
+and explain what you’ve like to get reviewed</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="how-to-set-up-a-development-environment">
+<h2>How to set up a development environment<a class="headerlink" href="#how-to-set-up-a-development-environment" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">(Optional) Fork the project on GitHub.</p>
+</li>
+<li><p class="first">Clone the git repository.</p>
+</li>
+<li><p class="first">(Optional) Set up a virtualenv.</p>
+</li>
+<li><p class="first">Install gcovr in development mode, and install the test requirements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>You can then run gcovr as <code class="docutils literal notranslate"><span class="pre">gcovr</span></code> or <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">gcovr</span></code>.</p>
+<p>Run the tests to verify that everything works (see below).</p>
+</li>
+<li><p class="first">(Optional) Install documentation requirements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">doc</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">doc/README.txt</span></code> for details on working with the documentation.</p>
+</li>
+<li><p class="first">(Optional) Activate Travis and Appveyor for your forked GitHub repository,
+so that the cross-platform compatibility tests get run
+whenever you push your work to your repository.
+These tests will also be run
+when you open a pull request to the main gcovr repository.</p>
+</li>
+</ul>
+<p>Tip: If you have problems getting everything set up, consider looking at the
+<code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code> (Linux) and
+<code class="docutils literal notranslate"><span class="pre">appveyor.yml</span></code> (Windows) files.</p>
+<p>On <strong>Windows</strong>, you will need to install a GCC toolchain
+as the tests expect a Unix-like environment.
+You can use MinGW-W64 or MinGW.
+To run the tests,
+please make sure that the <code class="docutils literal notranslate"><span class="pre">make</span></code> and <code class="docutils literal notranslate"><span class="pre">cmake</span></code> from your MinGW distribution
+are in the system <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+</div>
+<div class="section" id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Path</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">/</span></code></td>
+<td>project root</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">/gcovr/</span></code></td>
+<td>the gcovr source code (Python module)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">/gcovr/__main__.py</span></code></td>
+<td>command line interface + top-level behaviour</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">/gcovr/templates/</span></code></td>
+<td>HTML report templates</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">/gcovr/tests/</span></code></td>
+<td>unit tests + integration test corpus</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">/setup.py</span></code></td>
+<td>Python package configuration</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">/doc/</span></code></td>
+<td>documentation</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">/doc/sources/</span></code></td>
+<td>user guide + website</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">/doc/examples/</span></code></td>
+<td>runnable examples for the user guide</td>
+</tr>
+</tbody>
+</table>
+<p>The program entrypoint and command line interface is in <code class="docutils literal notranslate"><span class="pre">gcovr/__main__.py</span></code>.
+The coverage data is parsed in the <code class="docutils literal notranslate"><span class="pre">gcovr.gcov</span></code> module.
+The HTML, XML, text, and summary reports
+are in <code class="docutils literal notranslate"><span class="pre">gcovr.html_generator</span></code> and respective modules.</p>
+</div>
+<div class="section" id="test-suite">
+<h2>Test suite<a class="headerlink" href="#test-suite" title="Permalink to this headline">¶</a></h2>
+<p>The tests are in the <code class="docutils literal notranslate"><span class="pre">gcovr/tests</span></code> directory.
+You can run the tests with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pytest</span></code>.</p>
+<p>There are unit tests for some parts of gcovr,
+and a comprehensive corpus of example projects
+that are executed as the <code class="docutils literal notranslate"><span class="pre">test_gcovr.py</span></code> test.
+Each <code class="docutils literal notranslate"><span class="pre">gcovr/tests/*</span></code> directory is one such example project.</p>
+<p>Each project in the corpus
+contains a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> and a <code class="docutils literal notranslate"><span class="pre">reference</span></code> directory.
+The Makefile controls how the project is built,
+and how gcovr should be invoked.
+The reference directory contains baseline files against
+which the gcovr output is compared.
+Each project is tested three times to cover <code class="docutils literal notranslate"><span class="pre">txt</span></code>, <code class="docutils literal notranslate"><span class="pre">html</span></code>, and <code class="docutils literal notranslate"><span class="pre">xml</span></code> output.</p>
+<p>Because the tests are a bit slow, you can limit the tests to a specific
+test file, example project, or output format.
+For example:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># run only XML tests</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span> <span class="o">-</span><span class="n">k</span> <span class="n">xml</span>
+
+<span class="c1"># run the simple1 tests</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span> <span class="o">-</span><span class="n">k</span> <span class="n">simple1</span>
+
+<span class="c1"># run the simple1 tests only for XML</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span> <span class="o">-</span><span class="n">k</span> <span class="s1">&#39;xml and simple1&#39;</span>
+</pre></div>
+</div>
+<p>To see all tests, run pytest in <code class="docutils literal notranslate"><span class="pre">-v</span></code> verbose mode.
+To see which tests would be run, add the <code class="docutils literal notranslate"><span class="pre">--collect-only</span></code> option.</p>
+<p>The tests currently assume that you are using GCC 5.</p>
+</div>
+<div class="section" id="become-a-gcovr-developer">
+<h2>Become a gcovr developer<a class="headerlink" href="#become-a-gcovr-developer" title="Permalink to this headline">¶</a></h2>
+<p>After you’ve contributed a bit
+(whether with discussions, documentation, or code),
+consider becoming a gcovr developer.
+As a developer, you can:</p>
+<ul class="simple">
+<li>manage issues and pull requests (label and close them)</li>
+<li>review pull requests
+(a developer must approve each PR before it can be merged)</li>
+<li>participate in votes</li>
+</ul>
+<p>Just open an issue that you’re interested, and we’ll have a quick vote.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Change Log" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="guide.html" class="btn btn-neutral" title="Gcovr User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, the gcovr authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

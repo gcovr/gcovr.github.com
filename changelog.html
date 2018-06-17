@@ -1,0 +1,514 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Change Log &mdash; gcovr 4.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Contributing" href="contributing.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> gcovr
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html">Gcovr User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Change Log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#july-2018">4.0 (17 July 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#february-2018">3.4 (12 February 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#august-2016">3.3 (6 August 2016)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#july-2014">3.2 (5 July 2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#december-2013">3.1 (6 December 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#august-2013">3.0 (10 August 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#april-2012">2.4 (13 April 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#january-2012">2.3.1 (6 January 2012)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#december-2011">2.3 (11 December 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.2 (10 December 2011)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#november-2010">2.1 (26 November 2010)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#august-2010">2.0 (22 August 2010)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">gcovr</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Change Log</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="change-log">
+<h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">gcovr</span></code> Release History and Change Log</p>
+<div class="section" id="july-2018">
+<h2>4.0 (17 July 2018)<a class="headerlink" href="#july-2018" title="Permalink to this headline">¶</a></h2>
+<p>Breaking changes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>This release drops support for Python 2.6. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/250">#250</a>)</li>
+<li>PIP is the only supported installation method.</li>
+<li>No longer encoding-agnostic under Python 2.7.
+If your source files do not use the system encoding (probably UTF-8),
+you will have to specify a --source-encoding.
+(<a class="reference external" href="https://github.com/gcovr/gcovr/issues/148">#148</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/156">#156</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/256">#256</a>)</li>
+<li>Filters now use forward slashes as path separators, even on Windows.
+(<a class="reference external" href="https://github.com/gcovr/gcovr/issues/191">#191</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/257">#257</a>)</li>
+<li>Filters are no longer normalized into pseudo-paths.
+This could change the interpretation of filters in some edge cases.</li>
+</ul>
+</div></blockquote>
+<p>Improvements and new features:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Improved --help output. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/236">#236</a>)</li>
+<li>Parse the GCC 8 gcov format. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/226">#226</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/228">#228</a>)</li>
+<li>New --source-encoding option, which fixes decoding under Python 3.
+(<a class="reference external" href="https://github.com/gcovr/gcovr/issues/256">#256</a>)</li>
+<li>New --gcov-ignore-parse-errors flag.
+By default, gcovr will now abort upon parse errors. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/228">#228</a>)</li>
+<li>Detect the error when gcov cannot create its output files (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/243">#243</a>,
+<a class="reference external" href="https://github.com/gcovr/gcovr/issues/244">#244</a>)</li>
+<li>Add -j flag to run gcov processes in parallel. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/3">#3</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/36">#36</a>,
+<a class="reference external" href="https://github.com/gcovr/gcovr/issues/239">#239</a>)</li>
+<li>The --html-details flag now implies --html. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/93">#93</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/211">#211</a>)</li>
+<li>The --html output can now be used without an --output filename
+(<a class="reference external" href="https://github.com/gcovr/gcovr/issues/223">#223</a>)</li>
+<li>The docs are now managed with Sphinx.
+(<a class="reference external" href="https://github.com/gcovr/gcovr/issues/235">#235</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/248">#248</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/249">#249</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/252">#252</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/253">#253</a>)</li>
+<li>New --html-title option to change the title of the HTML report.
+(<a class="reference external" href="https://github.com/gcovr/gcovr/issues/261">#261</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/263">#263</a>)</li>
+<li>New options --html-medium-threshold and --html-high-threshold
+to customize the color legend. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/261">#261</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/264">#264</a>)</li>
+</ul>
+</div></blockquote>
+<p>Internal changes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Huge refactoring. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/214">#214</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/215">#215</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/221">#221</a> <a class="reference external" href="https://github.com/gcovr/gcovr/issues/225">#225</a>,
+<a class="reference external" href="https://github.com/gcovr/gcovr/issues/228">#228</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/237">#237</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/246">#246</a>)</li>
+<li>Various testing improvements. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/213">#213</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/214">#214</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/216">#216</a>,
+<a class="reference external" href="https://github.com/gcovr/gcovr/issues/217">#217</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/218">#218</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/222">#222</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/223">#223</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/224">#224</a>,
+<a class="reference external" href="https://github.com/gcovr/gcovr/issues/227">#227</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/240">#240</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/241">#241</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/245">#245</a>)</li>
+<li>HTML reports are now rendered with Jinja2 templates. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/234">#234</a>)</li>
+<li>New contributing guide. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/253">#253</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="february-2018">
+<h2>3.4 (12 February 2018)<a class="headerlink" href="#february-2018" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Added --html-encoding command line option (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/139">#139</a>).</li>
+<li>Added --fail-under-line and --fail-under-branch options,
+which will error under a given minimum coverage. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/173">#173</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/116">#116</a>)</li>
+<li>Better pathname resolution heuristics for --use-gcov-file. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/146">#146</a>)</li>
+<li>The --root option defaults to current directory ‘.’.</li>
+<li>Improved reports for “(“, “)”, “;” lines.</li>
+<li>HTML reports show full timestamp, not just date. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/165">#165</a>)</li>
+<li>HTML reports treat 0/0 coverage as NaN, not 100% or 0%. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/105">#105</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/149">#149</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/196">#196</a>)</li>
+<li>Add support for coverage-04.dtd Cobertura XML format (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/164">#164</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/186">#186</a>)</li>
+<li>Only Python 2.6+ is supported, with 2.7+ or 3.4+ recommended. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/195">#195</a>)</li>
+<li>Added CI testing for Windows using Appveyor. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/189">#189</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/200">#200</a>)</li>
+<li>Reports use forward slashes in paths, even on Windows. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/200">#200</a>)</li>
+<li>Fix to support filtering with absolute paths.</li>
+<li>Fix HTML generation with Python 3. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/168">#168</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/182">#182</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/163">#163</a>)</li>
+<li>Fix --html-details under Windows. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/157">#157</a>)</li>
+<li>Fix filters under Windows. (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/158">#158</a>)</li>
+<li>Fix verbose output when using existing gcov files (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/143">#143</a>, <a class="reference external" href="https://github.com/gcovr/gcovr/issues/144">#144</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="august-2016">
+<h2>3.3 (6 August 2016)<a class="headerlink" href="#august-2016" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Added CI testing using TravisCI</li>
+<li>Added more tests for out of source builds and other nested builds</li>
+<li>Avoid common file prefixes in HTML output (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/103">#103</a>)</li>
+<li>Added the --execlude-directories argument to exclude directories
+from the search for symlinks (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/87">#87</a>)</li>
+<li>Added branches taken/not taken to HTML (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/75">#75</a>)</li>
+<li>Use --object-directory to scan for gcov data files (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/72">#72</a>)</li>
+<li>Improved logic for nested makefiles (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/135">#135</a>)</li>
+<li>Fixed unexpected semantics with --root argument (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/108">#108</a>)</li>
+<li>More careful checks for covered lines (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/109">#109</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="july-2014">
+<h2>3.2 (5 July 2014)<a class="headerlink" href="#july-2014" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Adding a test for out of source builds</li>
+<li>Using the starting directory when processing gcov filenames.
+(<a class="reference external" href="https://github.com/gcovr/gcovr/issues/42">#42</a>)</li>
+<li>Making relative paths the default in html output.</li>
+<li>Simplify html bar with coverage is zero.</li>
+<li>Add option for using existing gcov files (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/35">#35</a>)</li>
+<li>Fixing --root argument processing (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/27">#27</a>)</li>
+<li>Adding logic to cover branches that are ignored (<a class="reference external" href="https://github.com/gcovr/gcovr/issues/28">#28</a>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="december-2013">
+<h2>3.1 (6 December 2013)<a class="headerlink" href="#december-2013" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Change to make the -r/--root options define the root directory
+for source files.</li>
+<li>Fix to apply the -p option when the --html option is used.</li>
+<li>Adding new option, ‘--exclude-unreachable-branches’ that
+will exclude branches in certain lines from coverage report.</li>
+<li>Simplifying and standardizing the processing of linked files.</li>
+<li>Adding tests for deeply nested code, and symbolic links.</li>
+<li>Add support for multiple —filter options in same manner as —exclude
+option.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="august-2013">
+<h2>3.0 (10 August 2013)<a class="headerlink" href="#august-2013" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Adding the ‘--gcov-executable’ option to specify
+the name/location of the gcov executable. The command line option
+overrides the environment variable, which overrides the default ‘gcov’.</li>
+<li>Adding an empty “&lt;methods/&gt;” block to &lt;classes/&gt; in the XML output: this
+makes out XML complient with the Cobertura DTD. (#3951)</li>
+<li>Allow the GCOV environment variable to override the default ‘gcov’
+executable.  The default is to search the PATH for ‘gcov’ if the GCOV
+environment variable is not set. (#3950)</li>
+<li>Adding support for LCOV-style flags for excluding certain lines from
+coverage analysis. (#3942)</li>
+<li>Setup additional logic to test with Python 2.5.</li>
+<li>Added the --html and --html-details options to generate HTML.</li>
+<li>Sort output for XML to facilitate baseline tests.</li>
+<li>Added error when the --object-directory option specifies a bad directory.</li>
+<li>Added more flexible XML testing, which can ignore XML elements
+that frequently change (e.g. timestamps).</li>
+<li>Added the ‘—xml-pretty’ option, which is used to
+generate pretty XML output for the user manual.</li>
+<li>Many documentation updates</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="april-2012">
+<h2>2.4 (13 April 2012)<a class="headerlink" href="#april-2012" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>New approach to walking the directory tree that is more robust to
+symbolic links (#3908)</li>
+<li>Normalize all reported path names<ul>
+<li>Normalize using the full absolute path (#3921)</li>
+<li>Attempt to resolve files referenced through symlinks to a common
+project-relative path</li>
+</ul>
+</li>
+<li>Process <code class="docutils literal notranslate"><span class="pre">gcno</span></code> files when there is no corresponding <code class="docutils literal notranslate"><span class="pre">gcda</span></code> file to
+provide coverage information for unexecuted modules (#3887)</li>
+<li>Windows compatibility fixes<ul>
+<li>Fix for how we parse <code class="docutils literal notranslate"><span class="pre">source:</span></code> file names (#3913)</li>
+<li>Better handling od EOL indicators (#3920)</li>
+</ul>
+</li>
+<li>Fix so that gcovr cleans up all <code class="docutils literal notranslate"><span class="pre">.gcov</span></code> files, even those filtered by
+command line arguments</li>
+<li>Added compatibility with GCC 4.8 (#3918)</li>
+<li>Added a check to warn users who specify an empty <code class="docutils literal notranslate"><span class="pre">--root</span></code> option (see #3917)</li>
+<li>Force <code class="docutils literal notranslate"><span class="pre">gcov</span></code> to run with en_US localization, so the gcovr parser runs
+correctly on systems with non-English locales (#3898, #3902).</li>
+<li>Segregate warning/error information onto the stderr stream (#3924)</li>
+<li>Miscellaneous (Python 3.x) portability fixes</li>
+<li>Added the master svn revision number as part of the verson identifier</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="january-2012">
+<h2>2.3.1 (6 January 2012)<a class="headerlink" href="#january-2012" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Adding support for Python 3.x</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="december-2011">
+<h2>2.3 (11 December 2011)<a class="headerlink" href="#december-2011" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Adding the <code class="docutils literal notranslate"><span class="pre">--gcov-filter</span></code> and <code class="docutils literal notranslate"><span class="pre">--gcov-exclude</span></code> options.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>2.2 (10 December 2011)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Added a test driver for gcovr.</li>
+<li>Improved estimation of the <code class="docutils literal notranslate"><span class="pre">&lt;sources&gt;</span></code> element when using gcovr with filters.</li>
+<li>Added revision and date keywords to gcovr so it is easier to identify
+what version of the script users are using (especially when they are
+running a snapshot from trunk).</li>
+<li>Addressed special case mentioned in [comment:ticket:3884:1]: do not
+truncate the reported file name if the filter does not start matching
+at the beginning of the string.</li>
+<li>Overhaul of the <code class="docutils literal notranslate"><span class="pre">--root</span></code> / <code class="docutils literal notranslate"><span class="pre">--filter</span></code> logic. This should resolve the
+issue raised in #3884, along with the more general filter issue
+raised in [comment:ticket:3884:1]</li>
+<li>Overhaul of gcovr’s logic for determining gcc/g++’s original working
+directory. This resolves issues introduced in the original
+implementation of <code class="docutils literal notranslate"><span class="pre">--object-directory</span></code> (#3872, #3883).</li>
+<li>Bugfix: gcovr was only including a <code class="docutils literal notranslate"><span class="pre">&lt;sources&gt;</span></code> element in the XML
+report if the user specified <code class="docutils literal notranslate"><span class="pre">-r</span></code> (#3869)</li>
+<li>Adding timestamp and version attributes to the gcovr XML report (see
+#3877).  It looks like the standard Cobertura output reports number of
+seconds since the epoch for the timestamp and a doted decimal version
+string.  Now, gcovr reports seconds since the epoch and
+“<code class="docutils literal notranslate"><span class="pre">gcovr</span> <span class="pre">``&quot;+``__version__</span></code> (e.g. “gcovr 2.2”) to differentiate it
+from a pure Cobertura report.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="november-2010">
+<h2>2.1 (26 November 2010)<a class="headerlink" href="#november-2010" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">Added the <code class="docutils literal notranslate"><span class="pre">--object-directory</span></code> option, which allows for a flexible
+specification of the directory that contains the objects generated by
+gcov.</p>
+</li>
+<li><p class="first">Adding fix to compare the absolute path of a filename to an exclusion
+pattern.</p>
+</li>
+<li><p class="first">Adding error checking when no coverage results are found. The line and
+branch counts can be zero.</p>
+</li>
+<li><p class="first">Adding logic to process the <code class="docutils literal notranslate"><span class="pre">-o</span></code>/<code class="docutils literal notranslate"><span class="pre">--output</span></code> option (#3870).</p>
+</li>
+<li><p class="first">Adding patch to scan for lines that look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>creating `foo&#39;
+</pre></div>
+</div>
+<p>as well as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">creating</span> <span class="s1">&#39;foo&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Changing the semantics for EOL to be portable for MS Windows.</p>
+</li>
+<li><p class="first">Add attributes to xml format so that it could be used by hudson/bamboo with
+cobertura plug-in.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="august-2010">
+<h2>2.0 (22 August 2010)<a class="headerlink" href="#august-2010" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Initial release as a separate package.  Earlier versions of gcovr
+were managed within the ‘fast’ Python package.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contributing.html" class="btn btn-neutral" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, the gcovr authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
