@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>License &mdash; gcovr 4.0 documentation</title>
+  <title>Gcovr Cookbook &mdash; gcovr 4.0 documentation</title>
   
 
   
@@ -29,7 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Change Log" href="changelog.html" /> 
+    <link rel="next" title="Frequently Asked Questions" href="faq.html" />
+    <link rel="prev" title="Gcovr User Guide" href="guide.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -86,11 +87,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide.html">Gcovr User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cookbook.html">Gcovr Cookbook</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gcovr Cookbook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-collect-coverage-for-c-extensions-in-python">How to collect coverage for C extensions in Python</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
             
@@ -136,13 +140,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>License</li>
+      <li>Gcovr Cookbook</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/license.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/cookbook.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -155,17 +159,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="license">
-<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
-<p>Copyright 2013-2018 the gcovr authors</p>
-<p>Copyright 2013 Sandia Corporation.
-Under the terms of Contract DE-AC04-94AL85000 with Sandia Corporation,
-the U.S. Government retains certain rights in this software.</p>
-<p>Gcovr is available under the 3-clause BSD License.
-See LICENSE.txt for full details.
-See AUTHORS.txt for the full list of contributors.</p>
-<p>Gcovr development moved to this repository in September, 2013 from
-Sandia National Laboratories.</p>
+  <div class="section" id="gcovr-cookbook">
+<h1>Gcovr Cookbook<a class="headerlink" href="#gcovr-cookbook" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-collect-coverage-for-c-extensions-in-python">
+<h2>How to collect coverage for C extensions in Python<a class="headerlink" href="#how-to-collect-coverage-for-c-extensions-in-python" title="Permalink to this headline">¶</a></h2>
+<p>Collecting code coverage data on the C code that makes up a Python
+extension module is not quite as straightforward as with a regular C
+program.</p>
+<p>As with a normal C project,
+we have to compile our code with coverage instrumentation.
+Here, we <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">CFLAGS=&quot;--coverage&quot;</span></code>
+and then run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">build_ext</span></code>.</p>
+<p>Unfortunately, <code class="docutils literal notranslate"><span class="pre">build_ext</span></code> can rebuild a source file
+even if the current object file is up to date.
+If multiple extension modules share the same source code file,
+gcov will get confused by the different timestamps
+and report inaccurate coverage.
+It is nontrivial to adapt the <code class="docutils literal notranslate"><span class="pre">build_ext</span></code> process to avoid this.</p>
+<p>Instead, we can use the <code class="docutils literal notranslate"><span class="pre">ccache</span></code> utility to make the compilation lazy
+(works best on Unix systems).
+Before we invoke the <code class="docutils literal notranslate"><span class="pre">build_ext</span></code> step, we first <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">CC=&quot;ccache</span> <span class="pre">gcc&quot;</span></code>.
+Ccache works well but isn’t absolutely perfect,
+see the <a class="reference external" href="https://ccache.samba.org/manual/latest.html#_caveats">ccache manual</a> for caveats.</p>
+<p>A shell session might look like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set required env vars</span>
+<span class="nb">export</span> <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;--coverage&quot;</span>
+<span class="nb">export</span> <span class="nv">CC</span><span class="o">=</span><span class="s2">&quot;ccache gcc&quot;</span>
+
+<span class="c1"># clear out build files so we get a fresh compile</span>
+rm -rf build/temp.*  <span class="c1"># contains old .gcda, .gcno files</span>
+rm -rf build/lib.*
+
+<span class="c1"># rebuild extensions</span>
+python3 setup.py build_ext --inplace  <span class="c1"># possibly --force</span>
+
+<span class="c1"># run test command i.e. pytest</span>
+
+<span class="c1"># run gcovr</span>
+rm -rf coverage<span class="p">;</span> mkdir coverage
+gcovr --filter src/ --print-summary --html-details -o coverage/index.html
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -176,8 +211,10 @@ Sandia National Laboratories.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="changelog.html" class="btn btn-neutral" title="Change Log" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="guide.html" class="btn btn-neutral" title="Gcovr User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

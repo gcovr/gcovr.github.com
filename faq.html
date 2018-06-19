@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>License &mdash; gcovr 4.0 documentation</title>
+  <title>Frequently Asked Questions &mdash; gcovr 4.0 documentation</title>
   
 
   
@@ -29,7 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Change Log" href="changelog.html" /> 
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="Gcovr Cookbook" href="cookbook.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -87,10 +88,13 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide.html">Gcovr User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cookbook.html">Gcovr Cookbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-difference-between-lcov-and-gcovr">What is the difference between lcov and gcovr?</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
             
@@ -136,13 +140,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>License</li>
+      <li>Frequently Asked Questions</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/license.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -155,17 +159,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="license">
-<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
-<p>Copyright 2013-2018 the gcovr authors</p>
-<p>Copyright 2013 Sandia Corporation.
-Under the terms of Contract DE-AC04-94AL85000 with Sandia Corporation,
-the U.S. Government retains certain rights in this software.</p>
-<p>Gcovr is available under the 3-clause BSD License.
-See LICENSE.txt for full details.
-See AUTHORS.txt for the full list of contributors.</p>
-<p>Gcovr development moved to this repository in September, 2013 from
-Sandia National Laboratories.</p>
+  <div class="section" id="frequently-asked-questions">
+<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-the-difference-between-lcov-and-gcovr">
+<h2>What is the difference between lcov and gcovr?<a class="headerlink" href="#what-is-the-difference-between-lcov-and-gcovr" title="Permalink to this headline">¶</a></h2>
+<p>Both lcov and gcovr are tools to create coverage reports.</p>
+<p>Gcovr was originally created as a simple script
+to provide a convenient command line interface to gcov
+that produced more easily digestible output similar to Python’s coverage utilities.</p>
+<p>Later, we added XML output
+that could be used with the Cobertura plugin of the Jenkins continuous integration server.
+This gave us nice coverage reports for C/C++ code in Jenkins.</p>
+<p>HTML output was added much later.
+If all you need is HTML,
+pick whichever one produces the output you like better
+or integrates easier with your existing workflow.</p>
+<p>Lcov is a far older project that is part of the Linux Test Project.
+It provides some features that gcovr does not have:
+For example, lcov has explicit support for capturing Linux kernel coverage.
+Lcov also supports various trace file manipulation functions
+such as merging trace files from different test runs.
+You can learn more at the <a class="reference external" href="http://ltp.sourceforge.net/coverage/lcov.php">lcov website</a> or the <a class="reference external" href="https://github.com/linux-test-project/lcov">lcov GitHub repository</a>.</p>
+</div>
 </div>
 
 
@@ -176,8 +191,10 @@ Sandia National Laboratories.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="changelog.html" class="btn btn-neutral" title="Change Log" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="cookbook.html" class="btn btn-neutral" title="Gcovr Cookbook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
