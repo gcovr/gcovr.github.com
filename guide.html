@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gcovr User Guide &mdash; gcovr 4.0 documentation</title>
+  <title>Gcovr User Guide &mdash; gcovr 4.1 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                4.0
+                4.1
               </div>
             
           
@@ -105,6 +105,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#using-filters">Using Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#speeding-up-coverage-data-search">Speeding up coverage data search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#filters-for-symlinks">Filters for symlinks</a></li>
 </ul>
 </li>
@@ -205,7 +206,7 @@ Automated test results are available through
 <a class="reference external" href="https://ci.appveyor.com/project/latk/gcovr-0p8sb/branch/master">Appveyor</a>.
 Gcovr is available under the
 <a class="reference external" href="http://www.gnu.org/licenses/bsd.html">BSD</a> license.</p>
-<p>This documentation describes Gcovr 4.0.</p>
+<p>This documentation describes Gcovr 4.1.</p>
 <p>This User Guide provides the following sections:</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -221,10 +222,11 @@ Gcovr is available under the
 </ul>
 </li>
 <li><a class="reference internal" href="#using-filters" id="id8">Using Filters</a><ul>
-<li><a class="reference internal" href="#filters-for-symlinks" id="id9">Filters for symlinks</a></li>
+<li><a class="reference internal" href="#speeding-up-coverage-data-search" id="id9">Speeding up coverage data search</a></li>
+<li><a class="reference internal" href="#filters-for-symlinks" id="id10">Filters for symlinks</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#acknowledgements" id="id10">Acknowledgements</a></li>
+<li><a class="reference internal" href="#acknowledgements" id="id11">Acknowledgements</a></li>
 </ul>
 </div>
 <p>Related documents:</p>
@@ -360,7 +362,7 @@ gcovr -r . --xml-pretty
   SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-04.dtd'&gt;</span>
 <span class="name tag">&lt;coverage</span> <span class="name attribute">branch-rate=</span><span class="literal string">&quot;0.5&quot;</span> <span class="name attribute">branches-covered=</span><span class="literal string">&quot;1&quot;</span> <span class="name attribute">branches-valid=</span><span class="literal string">&quot;2&quot;</span>
  <span class="name attribute">complexity=</span><span class="literal string">&quot;0.0&quot;</span> <span class="name attribute">line-rate=</span><span class="literal string">&quot;0.8571428571428571&quot;</span> <span class="name attribute">lines-covered=</span><span class="literal string">&quot;6&quot;</span>
- <span class="name attribute">lines-valid=</span><span class="literal string">&quot;7&quot;</span> <span class="name attribute">timestamp=</span><span class="literal string">&quot;1529246640&quot;</span> <span class="name attribute">version=</span><span class="literal string">&quot;gcovr 4.0&quot;</span><span class="name tag">&gt;</span>
+ <span class="name attribute">lines-valid=</span><span class="literal string">&quot;7&quot;</span> <span class="name attribute">timestamp=</span><span class="literal string">&quot;1530565116&quot;</span> <span class="name attribute">version=</span><span class="literal string">&quot;gcovr 4.1&quot;</span><span class="name tag">&gt;</span>
  <span class="name tag">&lt;sources&gt;</span>
   <span class="name tag">&lt;source&gt;</span>.<span class="name tag">&lt;/source&gt;</span>
  <span class="name tag">&lt;/sources&gt;</span>
@@ -727,8 +729,46 @@ and must not match any <a class="reference internal" href="#cmdoption-gcovr-e"><
 This is useful mostly when running gcov yourself,
 and then invoking gcovr with <a class="reference internal" href="#cmdoption-gcovr-g"><code class="xref std std-option docutils literal notranslate"><span class="pre">-g</span></code></a>/<a class="reference internal" href="#cmdoption-gcovr-g"><code class="xref std std-option docutils literal notranslate"><span class="pre">--use-gcov-files</span></code></a>.
 But these filters also apply when gcov is launched by gcovr.</p>
+<div class="section" id="speeding-up-coverage-data-search">
+<h3><a class="toc-backref" href="#id9">Speeding up coverage data search</a><a class="headerlink" href="#speeding-up-coverage-data-search" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="#cmdoption-gcovr-exclude-directories"><code class="xref std std-option docutils literal notranslate"><span class="pre">--exclude-directories</span></code></a> filter is used
+while searching for raw coverage data
+(or for existing <code class="docutils literal notranslate"><span class="pre">.gcov</span></code> files when <a class="reference internal" href="#cmdoption-gcovr-g"><code class="xref std std-option docutils literal notranslate"><span class="pre">--use-gcov-files</span></code></a> is active).
+This filter is matched against directory paths, not file paths.
+If a directory matches,
+all its contents (files and subdirectories) will be excluded from the search.
+For example, consider this build directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>build/
+├─ main.o
+├─ main.gcda
+├─ main.gcno
+├─ a/
+│  ├─ awesome_code.o
+│  ├─ awesome_code.gcda
+│  └─ awesome_code.gcno
+└─ b/
+   ├─ better_code.o
+   ├─ better_code.gcda
+   └─ better_code.gcno
+</pre></div>
+</div>
+<p>If we run <code class="docutils literal notranslate"><span class="pre">gcovr</span> <span class="pre">--exclude-directories</span> <span class="pre">'build/a$'</span></code>,
+this will exclude anything in the <code class="docutils literal notranslate"><span class="pre">build/a</span></code> directory
+but will use the coverage data for <code class="docutils literal notranslate"><span class="pre">better_code.o</span></code> and <code class="docutils literal notranslate"><span class="pre">main.o</span></code>.</p>
+<p>This can speed up gcovr when you have a complicated build directory structure.
+Consider also using the <a class="reference internal" href="#cmdoption-gcovr-arg-search-paths"><code class="xref std std-option docutils literal notranslate"><span class="pre">search_paths</span></code></a>
+or <a class="reference internal" href="#cmdoption-gcovr-object-directory"><code class="xref std std-option docutils literal notranslate"><span class="pre">--object-directory</span></code></a> arguments
+to specify where gcovr starts searching.
+If you are unsure which directories are being searched,
+run gcovr in <a class="reference internal" href="#cmdoption-gcovr-v"><code class="xref std std-option docutils literal notranslate"><span class="pre">--verbose</span></code></a> mode.</p>
+<p>For each found coverage data file gcovr will invoke the <code class="docutils literal notranslate"><span class="pre">gcov</span></code> tool.
+This is typically the slowest part,
+and other filters can only be applied <em>after</em> this step.
+In some cases, parallel execution with the <a class="reference internal" href="#cmdoption-gcovr-j"><code class="xref std std-option docutils literal notranslate"><span class="pre">-j</span></code></a> option
+might be helpful to speed up processing.</p>
+</div>
 <div class="section" id="filters-for-symlinks">
-<h3><a class="toc-backref" href="#id9">Filters for symlinks</a><a class="headerlink" href="#filters-for-symlinks" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Filters for symlinks</a><a class="headerlink" href="#filters-for-symlinks" title="Permalink to this headline">¶</a></h3>
 <p>Gcovr matches filters against <em>real paths</em>
 that have all their symlinks resolved.
 E.g. consider this project layout:</p>
@@ -765,7 +805,7 @@ please update this section by submitting a pull request
 </div>
 </div>
 <div class="section" id="acknowledgements">
-<h2><a class="toc-backref" href="#id10">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
 <p>Gcovr is maintained by:</p>
 <blockquote>
 <div>William Hart,
@@ -793,6 +833,7 @@ Kevin Cai,
 libPhipp,
 Lukas Atkinson,
 Luke Woydziak,
+Marek Kurdej,
 Martin Mraz,
 Matsumoto Taichi,
 Matthew Stadelman,
@@ -863,7 +904,7 @@ under contract DE-AC04-94AL85000.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0',
+            VERSION:'4.1',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
